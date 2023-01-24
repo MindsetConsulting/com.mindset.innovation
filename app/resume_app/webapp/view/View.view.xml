@@ -1,0 +1,128 @@
+<mvc:View controllerName="com.mindset.resumeapp.controller.View"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <content>
+                        <Table items="{mainModel>/ResumeData}" id="table0" mode="SingleSelectLeft" selectionChange="onSelect">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <content>
+                                        <ToolbarSpacer />
+                                        <SearchField id="searchField" width="20%" placeholder="search" search=".onSearch" />
+                                        <Button id="createButton" icon="sap-icon://add" tooltip="Create" visible="true" press="onOpenAddDialog">
+                                            <layoutData>
+                                                <OverflowToolbarLayoutData priority="NeverOverflow" />
+                                            </layoutData>
+                                        </Button>
+                                        <Button id="deleteButton" icon="sap-icon://delete" tooltip="Delete" visible="false" press="onDelete">
+                                            <layoutData>
+                                                <OverflowToolbarLayoutData priority="NeverOverflow" />
+                                            </layoutData>
+                                        </Button>
+
+                                        <Button id="saveButton" text="Save" type="Emphasized" visible="false" enabled="true" press="onSave" />
+                                        <Button id="editModeButton" visible="true" icon="sap-icon://edit" tooltip="Edit" press="onEditMode">
+                                            <layoutData>
+                                                <OverflowToolbarLayoutData priority="NeverOverflow" />
+                                            </layoutData>
+                                        </Button>
+
+                                    </content>
+                                    <dependents>
+                                        <Dialog id="OpenDialog" title="Create Details">
+                                            <buttons>
+                                                <Button id="confirmCreate" text="Create" press=".onCreate" type="Emphasized" />
+                                                <Button id="cancelCreate" text="Cancel" press="onCancelDialog" type="Transparent" />
+                                            </buttons>
+                                            <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                                                <form:content>
+                                                    <Label text="Candidate Name" required="true" />
+                                                    <Input id="cadname" change="onNameChange" />
+                                                    <Label text="Email id" />
+                                                    <Input id="emailid" rows="4" />
+                                                    <Label text="Phone no" />
+                                                    <Input id="phno" rows="4" />
+                                                    <Label text="Experience" />
+                                                    <Input id="exp" rows="4" />
+                                                    <Label text="Expertise" />
+                                                    <Input id="expertise" rows="4" />
+                                                    <Label text="Position" />
+                                                    <Input id="pos" rows="4" />
+                                                    <Label text="Confidence level" />
+                                                    <Input id="conf" rows="4" />
+                                                    <Label text="Overall Feedback" />
+                                                    <Input id="overfeed" rows="4" />
+                                                </form:content>
+                                            </form:SimpleForm>
+                                        </Dialog>
+                                    </dependents>
+
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <items>
+                                <ColumnListItem type="Active" id="item0">
+                                    <cells>
+                                        <Text id="id1" text="{mainModel>name}"/>
+                                        <Text id="id2" text="{mainModel>eMail}"/>
+                                        <Text id="id3" text="{mainModel>phoneNo}"/>
+                                        <Text id="id4" text="{mainModel>experience}"/>
+                                        <Text id="id5" text="{mainModel>expertise}"/>
+                                        <Text id="id11" text="{mainModel>position}"/>
+                                        <Text id="id12" text="{mainModel>confidencelevel}"/>
+                                        <Text id="id13" text="{mainModel>overallFeedback}"/>
+                                        <Button id="id6" icon="sap-icon://edit" onPress="onSelect" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                            <columns>
+                                <Column>
+                                    <header>
+                                        <Label text="Candidate Name" />
+                                    </header>
+                                </Column>
+                                <Column>
+                                    <header>
+                                        <Label text="Email id" />
+                                    </header>
+                                </Column>
+                                <Column>
+                                    <header>
+                                        <Label text="Phone no" />
+                                    </header>
+                                </Column>
+                                <Column>
+                                    <header>
+                                        <Label text="Experience" />
+                                    </header>
+                                </Column>
+                                <Column>
+                                    <header>
+                                        <Label text="Expertise" />
+                                    </header>
+                                </Column>
+                                <Column>
+                                    <header>
+                                        <Label text="Position" />
+                                    </header>
+                                </Column>
+                                <Column>
+                                    <header>
+                                        <Label text="Confidence level" />
+                                    </header>
+                                </Column>
+                                <Column>
+                                    <header>
+                                        <Label text="Overall Feedback" />
+                                    </header>
+                                </Column>
+                            </columns>
+                        </Table>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="CatalogService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="ResumeData" EntityType="CatalogService.ResumeData"/>
+            </EntityContainer>
+            <EntityType Name="ResumeData">
+                <Key>
+                    <PropertyRef Name="name"/>
+                </Key>
+                <Property Name="name" Type="Edm.String" Nullable="false"/>
+                <Property Name="eMail" Type="Edm.String"/>
+                <Property Name="phoneNo" Type="Edm.String"/>
+                <Property Name="experience" Type="Edm.String"/>
+                <Property Name="expertise" Type="Edm.String"/>
+                <Property Name="position" Type="Edm.String"/>
+                <Property Name="confidencelevel" Type="Edm.String"/>
+                <Property Name="overallFeedback" Type="Edm.String"/>
+            </EntityType>
+            <Annotations Target="CatalogService.ResumeData/name">
+                <Annotation Term="Common.Label" String="Candidate Name"/>
+            </Annotations>
+            <Annotations Target="CatalogService.ResumeData/eMail">
+                <Annotation Term="Common.Label" String="Email id"/>
+            </Annotations>
+            <Annotations Target="CatalogService.ResumeData/phoneNo">
+                <Annotation Term="Common.Label" String="Phone no"/>
+            </Annotations>
+            <Annotations Target="CatalogService.ResumeData/experience">
+                <Annotation Term="Common.Label" String="Experience"/>
+            </Annotations>
+            <Annotations Target="CatalogService.ResumeData/expertise">
+                <Annotation Term="Common.Label" String="Expertise"/>
+            </Annotations>
+            <Annotations Target="CatalogService.ResumeData/position">
+                <Annotation Term="Common.Label" String="Position"/>
+            </Annotations>
+            <Annotations Target="CatalogService.ResumeData/confidencelevel">
+                <Annotation Term="Common.Label" String="Confidence level"/>
+            </Annotations>
+            <Annotations Target="CatalogService.ResumeData/overallFeedback">
+                <Annotation Term="Common.Label" String="Overall Feedback"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
